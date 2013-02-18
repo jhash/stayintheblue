@@ -19,7 +19,12 @@ typedef enum {m, f} gender;
 @property double alcOz;
 @property BOOL rageInProgress;
 @property double BAC;
-@property NSMutableArray *bacHolder;
+@property double maxBACHolder;
+@property UIImage *userColor;
+@property NSString *currentDrink;
+@property NSDictionary *overallStats;
+@property NSDictionary *overallDrinks;
+
 
 
 
@@ -32,6 +37,8 @@ typedef enum {m, f} gender;
 - (void) saveData;
 
 - (void) loadData;
+
+- (void) updateColor;
 
 
 

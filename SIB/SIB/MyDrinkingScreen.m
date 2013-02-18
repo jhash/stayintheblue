@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 SJ. All rights reserved.
 //
 
+//NOT FUNCTIONAL
+
 #import "MyDrinkingScreen.h"
 
 @interface MyDrinkingScreen ()

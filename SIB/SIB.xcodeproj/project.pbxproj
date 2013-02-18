@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37E1F91F16D271680076BD5A /* toDoLoad.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E1F91E16D271680076BD5A /* toDoLoad.png */; };
 		37F95FF616D199BD00DD3AFD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F95FF516D199BD00DD3AFD /* UIKit.framework */; };
 		37F95FF816D199BD00DD3AFD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F95FF716D199BD00DD3AFD /* Foundation.framework */; };
 		37F95FFA16D199BD00DD3AFD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F95FF916D199BD00DD3AFD /* CoreGraphics.framework */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		37E1F91E16D271680076BD5A /* toDoLoad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toDoLoad.png; sourceTree = "<group>"; };
 		37F95FF216D199BD00DD3AFD /* SIB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SIB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F95FF516D199BD00DD3AFD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37F95FF716D199BD00DD3AFD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -139,6 +141,7 @@
 		37F95FFC16D199BD00DD3AFD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				37E1F91E16D271680076BD5A /* toDoLoad.png */,
 				37F95FFD16D199BD00DD3AFD /* SIB-Info.plist */,
 				37F95FFE16D199BD00DD3AFD /* InfoPlist.strings */,
 				37F9600116D199BD00DD3AFD /* main.m */,
@@ -235,6 +238,7 @@
 				37F9601D16D199BD00DD3AFD /* second@2x.png in Resources */,
 				37F9604116D1A8C100DD3AFD /* cabList.plist in Resources */,
 				37F9604216D1A8C100DD3AFD /* DrinkList.plist in Resources */,
+				37E1F91F16D271680076BD5A /* toDoLoad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +382,7 @@
 				37F9602216D199BD00DD3AFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,4 +10,7 @@
 
 @interface CabsScreen : UITableViewController
 
+@property (strong, nonatomic) NSDictionary  *cabs;
+@property (strong, nonatomic) NSArray *cabKeys;
+
 @end

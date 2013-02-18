@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CabScreen : UITableViewController
+@interface CabScreen : UITableViewController <UITableViewDelegate>
+
+@property (strong, nonatomic) NSDictionary  *cabs;
+@property (strong, nonatomic) NSArray *cabKeys;
+
 
 @end

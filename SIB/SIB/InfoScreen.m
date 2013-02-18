@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 SJ. All rights reserved.
 //
 
+//PARTIALLY FUNCTIONAL SCREEN -- 2.18 - lackcing all info
+
 #import "InfoScreen.h"
 
 @interface InfoScreen ()
@@ -35,4 +37,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)dismissSelf:(id)sender
+{
+    //dismiss with done button
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface InfoScreen : UIViewController
+- (IBAction)dismissSelf:(id)sender;
 
 @end

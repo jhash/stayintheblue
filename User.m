@@ -18,7 +18,10 @@
 @synthesize alcOz;
 @synthesize rageInProgress;
 @synthesize BAC;
-@synthesize bacHolder;
+@synthesize maxBACHolder;
+@synthesize userColor;
+@synthesize overallStats;
+@synthesize overallDrinks;
 
 - (NSString *) getFilePath {
     NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -27,7 +30,7 @@
 
 
 - (void) saveData{
-    NSArray *value = [[NSArray alloc] initWithObjects: [NSNumber  numberWithInt:sex], [NSNumber numberWithInt:weight], [NSNumber numberWithInt:startTime], [NSNumber numberWithDouble:alcOz], rageInProgress, [NSNumber numberWithDouble:BAC], bacHolder, nil];
+    NSArray *value = [[NSArray alloc] initWithObjects: [NSNumber  numberWithInt:sex], [NSNumber numberWithInt:weight], [NSNumber numberWithInt:startTime], [NSNumber numberWithDouble:alcOz], rageInProgress, [NSNumber numberWithDouble:BAC], maxBACHolder, nil];
     
     [value writeToFile:[self getFilePath] atomically:YES];
 }
@@ -59,7 +62,7 @@
         alcOz = [[values objectAtIndex:4] doubleValue];
         rageInProgress = [[values objectAtIndex:5] boolValue];
         BAC = [[values objectAtIndex:6] doubleValue];
-        bacHolder = [values objectAtIndex:7];
+        maxBACHolder = [[values objectAtIndex:7] doubleValue];
         NSLog(@"%@", values);
      }
     
@@ -85,8 +88,10 @@
         BAC = (alcOz * 5.14/weight * .66) - (.015*(elapsedTime * .0002));
     }
 
-    NSNumber *tempBAC = [NSNumber numberWithDouble:BAC];
-    [bacHolder addObject:tempBAC];
+    if (BAC > maxBACHolder)
+    {
+        maxBACHolder = BAC;
+    }
     [self saveData];
 
 }
@@ -96,6 +101,11 @@
     elapsedTime = ([NSDate timeIntervalSinceReferenceDate] - startTime);
 }
 
+
+- (void) updateColor
+{
+    //need images for color, series of if statments will update the image based on the color. 
+}
 
 
 
@@ -108,7 +118,7 @@
         alcOz = 0;
         rageInProgress = NO;
         BAC = 0.0;
-        [bacHolder init];
+        maxBACHolder = 0;
     }
     [self saveData];
     return self;

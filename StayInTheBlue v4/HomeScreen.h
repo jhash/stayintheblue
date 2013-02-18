@@ -12,13 +12,15 @@
 #import "CabScreen.h"
 #import "DrinkingScreen.h"
 
-@interface HomeScreen : UIViewController
-
+@interface HomeScreen : UIViewController <UITableViewDelegate>
 
 
 @property (nonatomic, strong) User *user;
 
 - (IBAction)testLoad:(id)sender;
+
+- (void)dismissCabs: (CabScreen *) cabs;
+
 
 
 @end
