@@ -16,6 +16,8 @@
 
 @synthesize user;
 
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -37,7 +39,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)TestButton:(id)sender {
-    
-}
+
 @end

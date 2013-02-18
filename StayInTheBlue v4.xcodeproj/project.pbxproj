@@ -26,6 +26,7 @@
 		377F5FF4169A65530082EFAD /* CabScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 377F5FF3169A65530082EFAD /* CabScreen.m */; };
 		377F5FF7169A65650082EFAD /* DrinkTypesScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 377F5FF6169A65650082EFAD /* DrinkTypesScreen.m */; };
 		AA23C7F916AB135A00D78BC4 /* DrinkList.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA23C7F816AB135A00D78BC4 /* DrinkList.plist */; };
+		AA9CA67916C6DC8D0094C00C /* cabList.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA9CA67816C6DC8D0094C00C /* cabList.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		377F5FF5169A65640082EFAD /* DrinkTypesScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinkTypesScreen.h; sourceTree = "<group>"; };
 		377F5FF6169A65650082EFAD /* DrinkTypesScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrinkTypesScreen.m; sourceTree = "<group>"; };
 		AA23C7F816AB135A00D78BC4 /* DrinkList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DrinkList.plist; sourceTree = "<group>"; };
+		AA9CA67816C6DC8D0094C00C /* cabList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cabList.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				377F5FF2169A65530082EFAD /* CabScreen.h */,
 				377F5FF3169A65530082EFAD /* CabScreen.m */,
 				AA23C7F816AB135A00D78BC4 /* DrinkList.plist */,
+				AA9CA67816C6DC8D0094C00C /* cabList.plist */,
 				377F5FF5169A65640082EFAD /* DrinkTypesScreen.h */,
 				377F5FF6169A65650082EFAD /* DrinkTypesScreen.m */,
 				377F5FE6169A64AB0082EFAD /* SettingScreen.h */,
@@ -198,6 +201,7 @@
 				377F5FBA169A5C060082EFAD /* Default-568h@2x.png in Resources */,
 				377F5FBD169A5C060082EFAD /* MainStoryboard.storyboard in Resources */,
 				AA23C7F916AB135A00D78BC4 /* DrinkList.plist in Resources */,
+				AA9CA67916C6DC8D0094C00C /* cabList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
