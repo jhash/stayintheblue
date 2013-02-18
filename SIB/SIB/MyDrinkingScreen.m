@@ -1,22 +1,20 @@
 //
-//  DrinkingScreen.m
-//  StayInTheBlue v4
+//  MyDrinkingScreen.m
+//  SIB
 //
-//  Created by Steven Coffey on 1/6/13.
+//  Created by Steven Coffey on 2/17/13.
 //  Copyright (c) 2013 SJ. All rights reserved.
 //
 
-#import "DrinkingScreen.h"
+//NOT FUNCTIONAL
 
-@interface DrinkingScreen ()
+#import "MyDrinkingScreen.h"
+
+@interface MyDrinkingScreen ()
 
 @end
 
-@implementation DrinkingScreen
-
-@synthesize user;
-
-
+@implementation MyDrinkingScreen
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,6 +36,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end

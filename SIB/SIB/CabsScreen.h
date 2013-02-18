@@ -1,17 +1,16 @@
 //
-//  CabScreen.h
-//  StayInTheBlue v4
+//  CabsScreen.h
+//  SIB
 //
-//  Created by Steven Coffey on 1/6/13.
+//  Created by Steven Coffey on 2/17/13.
 //  Copyright (c) 2013 SJ. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface CabScreen : UITableViewController <UITableViewDelegate>
+@interface CabsScreen : UITableViewController
 
 @property (strong, nonatomic) NSDictionary  *cabs;
 @property (strong, nonatomic) NSArray *cabKeys;
-
 
 @end

@@ -9,7 +9,7 @@
 #import "HomeScreen.h"
 
 
-@interface HomeScreen () <DataDelegate>
+@interface HomeScreen () <DataDelegate> 
 
 @end
 
@@ -71,5 +71,12 @@
 - (IBAction)testLoad:(id)sender {
     
     NSLog(@"%u   %i", user.sex, user.weight);
+}
+
+- (void)dismissCabs: (CabScreen *) cabs
+{
+    [cabs dismissViewControllerAnimated:YES completion:nil];
+    
+    
 }
 @end

@@ -15,6 +15,7 @@
 @synthesize weight;
 @synthesize startTime;
 @synthesize elapsedTime;
+@synthesize numDrinks;
 @synthesize alcOz;
 @synthesize rageInProgress;
 @synthesize BAC;
@@ -115,10 +116,13 @@
     if (self) {
         startTime = [NSDate timeIntervalSinceReferenceDate];
         elapsedTime = 0;
+        weight = 0;
+        numDrinks = 0;
         alcOz = 0;
         rageInProgress = NO;
+        sex = m;
         BAC = 0.0;
-        maxBACHolder = 0;
+        maxBACHolder = 0.0;
     }
     [self saveData];
     return self;
