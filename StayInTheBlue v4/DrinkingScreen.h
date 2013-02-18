@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "HomeScreen.h"
 #import "User.h"
+#import "CabScreen.h"
 
 
-@interface DrinkingScreen : UIViewController
+@interface DrinkingScreen : UIViewController 
 
 @property User * user;
-- (IBAction)TestButton:(id)sender;
-@property (weak, nonatomic) IBOutlet UILabel *TestLabel;    
+   
+
+
 
 @end

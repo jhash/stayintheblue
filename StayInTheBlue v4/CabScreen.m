@@ -7,12 +7,15 @@
 //
 
 #import "CabScreen.h"
+#import "DrinkingScreen.h"
 
 @interface CabScreen ()
 
 @end
 
 @implementation CabScreen
+
+@synthesize cabs, cabKeys;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,6 +29,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSString *cabList = [[NSBundle mainBundle]
+                         pathForResource:@"cabList" ofType:@"plist"];
+    
+    cabs = [[NSDictionary alloc] initWithContentsOfFile:cabList];
+    
+    cabKeys = [cabs allKeys];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -44,26 +54,29 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
-    return 0;
+    return [cabs count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"Cabs";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    NSString *companyName = [cabKeys objectAtIndex:indexPath.row];
+    
+    [cell.textLabel setText:companyName];
     
     return cell;
+    
 }
 
 /*
@@ -116,6 +129,24 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSString *currentCompany = [cabKeys objectAtIndex:indexPath.row];
+    NSString *num = [[NSString alloc] initWithFormat:@"%@",[cabs valueForKey:currentCompany]];
+    
+    
+    
+    NSString *phoneNumber = [@"telprompt://" stringByAppendingString:num];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+    
+    
+    
+    //doesn't work
+    //[self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    
+    
 }
 
 @end

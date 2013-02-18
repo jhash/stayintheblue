@@ -1,22 +1,20 @@
 //
-//  DrinkingScreen.m
-//  StayInTheBlue v4
+//  InfoScreen.m
+//  SIB
 //
-//  Created by Steven Coffey on 1/6/13.
+//  Created by Steven Coffey on 2/17/13.
 //  Copyright (c) 2013 SJ. All rights reserved.
 //
 
-#import "DrinkingScreen.h"
+//PARTIALLY FUNCTIONAL SCREEN -- 2.18 - lackcing all info
 
-@interface DrinkingScreen ()
+#import "InfoScreen.h"
+
+@interface InfoScreen ()
 
 @end
 
-@implementation DrinkingScreen
-
-@synthesize user;
-
-
+@implementation InfoScreen
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,5 +37,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+- (IBAction)dismissSelf:(id)sender
+{
+    //dismiss with done button
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end
