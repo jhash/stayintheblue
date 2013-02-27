@@ -12,7 +12,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+<<<<<<< HEAD
     // Override point for customization after application launch.
+=======
+
+>>>>>>> Beta Master
     return YES;
 }
 							

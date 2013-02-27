@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>StayInTheBlue v4.xcscheme</key>
+		<key>SIB.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>377F5F9E169A5C060082EFAD</key>
+		<key>37F95FF116D199BD00DD3AFD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

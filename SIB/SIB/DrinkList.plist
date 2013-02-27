@@ -2,10 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+<<<<<<< HEAD
+=======
+	<key>MEGA ALCOHOL</key>
+	<integer>2</integer>
+	<key>Mind Probe</key>
+	<real>0.8</real>
+	<key>SharkBowl</key>
+	<integer>1</integer>
+	<key>FishBowl</key>
+	<real>0.8</real>
+>>>>>>> Beta Master
 	<key>Wine</key>
 	<real>0.6</real>
 	<key>Martini</key>
 	<real>0.4</real>
+<<<<<<< HEAD
+=======
+	<key>Irish Coffee</key>
+	<real>0.2</real>
+>>>>>>> Beta Master
 	<key>Jungle Juice</key>
 	<real>0.8</real>
 	<key>Shot</key>
@@ -14,5 +30,14 @@
 	<real>0.6</real>
 	<key>Light Beer</key>
 	<real>0.6</real>
+<<<<<<< HEAD
+=======
+	<key>Purple Drank</key>
+	<integer>10</integer>
+	<key>Sugar Water</key>
+	<integer>0</integer>
+	<key>Mrs. Butterworth&apos;s</key>
+	<real>0.1</real>
+>>>>>>> Beta Master
 </dict>
 </plist>

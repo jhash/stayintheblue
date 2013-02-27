@@ -10,10 +10,19 @@
 
 #import "DrinkingScreen.h"
 #import "SettingsScreen.h"
+<<<<<<< HEAD
+=======
+#import "NightStatsScreen.h"
+#define IS_FIRST_LOAD_CONST 0
+>>>>>>> Beta Master
 
 @interface DrinkingScreen ()
 @property NSTimer *t;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> Beta Master
 @end
 
 @implementation DrinkingScreen
@@ -22,6 +31,11 @@
 @synthesize user;
 @synthesize BACLabel, numDrinksLabel, buttonText,t;
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> Beta Master
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     //set delegate of drink picker to drinking screen view controller
@@ -38,6 +52,34 @@
         ss.delegate = self;
         ss.user = user;
     }
+<<<<<<< HEAD
+=======
+    
+    
+    if([segue.identifier isEqualToString:@"toNightStats"])
+    {
+        NightStatsScreen *nss = [segue destinationViewController];
+        nss.numDrinks = user.numDrinks;
+        nss.maxBAC = user.maxBACHolder;
+        
+        
+        
+        
+        
+        
+        
+        UIActionSheet *saveInfoSheet = [[UIActionSheet alloc] initWithTitle:@"Do you want to save this session?"
+                                                                   delegate:self
+                                                          cancelButtonTitle:@"NO"
+                                                     destructiveButtonTitle:@"YES"
+                                                          otherButtonTitles:nil, nil];
+        
+        //[saveInfoSheet showFromTabBar:self.tabBarController.tabBar];
+        [saveInfoSheet showFromTabBar:self.tabBarController.tabBar];
+        
+        
+    }
+>>>>>>> Beta Master
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -49,10 +91,18 @@
     return self;
 }
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> Beta Master
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+<<<<<<< HEAD
     //create user object on first load
     
     static dispatch_once_t pred;
@@ -60,6 +110,15 @@
         user = [[User alloc] init];
     });
     
+=======
+    
+    //create main user object ONCE
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        user = [[User alloc] init];
+    });
+
+>>>>>>> Beta Master
     
     //check if the user already started a session
     if(user.rageInProgress == YES)
@@ -69,6 +128,7 @@
         NSString *numDrinksText = [[NSString alloc] initWithFormat:@"%i", user.numDrinks];
         BACLabel.text = BACtext;
         numDrinksLabel.text = numDrinksText;
+<<<<<<< HEAD
         
         //[buttonText setTitle:@"DRINK" forState:UIControlStateNormal];
     }
@@ -91,10 +151,30 @@
     
     
     
+=======
+    }
+    
+    
+    else
+    {
+        //clear labels
+        BACLabel.text = @"0.0";
+        numDrinksLabel.text = @"(0)";
+        //change button text to start
+        [buttonText setTitle:@"START" forState:UIControlStateNormal];
+        self.doneButton.hidden = YES;
+        self.topNavBar.rightBarButtonItem.enabled = NO;
+        
+        
+    }
+    
+
+>>>>>>> Beta Master
 	
     //self.currentDrinkName.topItem.title = @"Light Beer";
 }
 
+<<<<<<< HEAD
 - (void) viewDidAppear:(BOOL)animated
 {
     
@@ -109,6 +189,27 @@
     
 
   
+=======
+
+
+
+
+
+
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    
+
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self performSegueWithIdentifier:@"toSettings" sender:self];
+    });
+    
+    
+
+>>>>>>> Beta Master
 }
 
 - (void)didReceiveMemoryWarning
@@ -154,15 +255,25 @@
 
         //uncomment these when drinkPicker showing works, see else block
         
+<<<<<<< HEAD
         //user.alcOz += currentAlcOz;
         //user.numDrinks += 1;
         //[user calcBAC];
         //numDrinksLabel.text = [NSString stringWithFormat:@"%i", user.numDrinks]; //update labels
         //BACLabel.text = [NSString stringWithFormat:@"%.2f", user.BAC];
+=======
+        user.alcOz += currentAlcOz;
+        user.numDrinks += 1;
+        user.elapsedTime = 2000;
+        [user calcBAC];
+        numDrinksLabel.text = [NSString stringWithFormat:@"(%i)", user.numDrinks]; //update labels
+        BACLabel.text = [NSString stringWithFormat:@"%.2f", user.BAC];
+>>>>>>> Beta Master
     }
     
     else //if the user is beginning a session, the drinkpicker will show automagically
     {
+<<<<<<< HEAD
         //show the drink picker
         
         
@@ -176,6 +287,22 @@
         //numDrinksLabel.text = [NSString stringWithFormat:@"%i", user.numDrinks]; //update labels
         //BACLabel.text = [NSString stringWithFormat:@"%.2f", user.BAC];
         //buttonText.titleLabel.text = @"DRINK"; //change button text
+=======
+        
+        
+        user.rageInProgress = YES;
+        self.doneButton.hidden = NO;
+        self.topNavBar.rightBarButtonItem.enabled = YES;
+        
+        [self performSegueWithIdentifier:@"toDrinkPicker" sender:self];
+        
+        
+        
+        //uncomment these when above works
+        user.startTime = [NSDate timeIntervalSinceReferenceDate];
+        [buttonText setTitle:@"DRINK" forState:UIControlStateNormal]; //change button text
+        t = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(onTick:) userInfo:nil repeats:YES];
+>>>>>>> Beta Master
         
         
         //create a repeating timer with 10 second interval. Use onTick method below for selector
@@ -183,6 +310,7 @@
     }
     
     
+<<<<<<< HEAD
     
     
       
@@ -192,6 +320,83 @@
     
 }
 
+=======
+}
+
+
+
+
+- (IBAction)donePressed:(id)sender
+{
+    
+    
+    
+    //[self performSegueWithIdentifier:@"toNightStats" sender:self];
+    
+}
+
+-(void) userClear //clears reusable data
+    
+{
+    user.rageInProgress = NO;
+    user.BAC = 0.0;
+    user.alcOz = 0.0;
+    user.numDrinks = 0;
+    self.currentAlcOz = 0;
+    user.maxBACHolder = 0.0;
+    user.elapsedTime = 0;
+    //clear labels
+    BACLabel.text = @"0.0";
+    numDrinksLabel.text = @"(0)";
+    //change button text to start
+    [buttonText setTitle:@"START" forState:UIControlStateNormal];
+    self.currentDrinkName.topItem.title = @"";
+    self.doneButton.hidden = YES;
+    self.topNavBar.rightBarButtonItem.enabled = NO;
+    [t invalidate];
+}
+
+- (NSString *) calcGeneralColor: (double) BAC
+{
+    if(BAC < .07)
+    {
+        return @"blue";
+    }
+    if(BAC > .07 && BAC < .19)
+    {
+        return @"maize";
+    }
+    else
+    {
+        return @"red";
+    }
+}
+
+#pragma mark uiactionsheet delegate method
+- (void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex != actionSheet.cancelButtonIndex)
+    {
+        NSString * color = [self calcGeneralColor:user.BAC];
+        int num = [[user.overallStats objectForKey:color] integerValue] +1;
+        [user.overallStats setObject:[NSNumber numberWithInt:num] forKey:color];
+        
+        for (id key in user.overallStats) {
+            NSLog(@"key: %@, value: %@ \n", key, [user.overallStats objectForKey:key]);
+        }
+        
+        [self userClear];
+    }
+    else
+    {
+        [self userClear];
+    }
+}
+
+
+
+
+>>>>>>> Beta Master
 - (void) onTick: (NSTimer *) t
 {
     //calc BAC again
@@ -204,6 +409,10 @@
     }
     //change label
     BACLabel.text = [NSString stringWithFormat:@"%.2f", [user BAC]];
+<<<<<<< HEAD
     //NSLog(@"%i", user.elapsedTime);
+=======
+    NSLog(@"Time: %i \n BAC: %f", user.elapsedTime, user.BAC);
+>>>>>>> Beta Master
 }
 @end

@@ -21,12 +21,21 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "DrinkingScreen.m"
+<<<<<<< HEAD
          timestampString = "382897382.615106"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "121"
          endingLineNumber = "121"
          landmarkName = "-addItemViewController:drinkName:alcOz:"
+=======
+         timestampString = "383120971.779221"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "124"
+         endingLineNumber = "124"
+         landmarkName = "-viewDidLoad"
+>>>>>>> Beta Master
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -86,12 +95,21 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "DrinkingScreen.m"
+<<<<<<< HEAD
          timestampString = "382897382.615106"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "141"
          endingLineNumber = "141"
          landmarkName = "-drinkPressed:"
+=======
+         timestampString = "383120971.779221"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "144"
+         endingLineNumber = "144"
+         landmarkName = "-viewDidAppear:"
+>>>>>>> Beta Master
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -99,6 +117,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "DrinkingScreen.m"
+<<<<<<< HEAD
          timestampString = "382897382.615106"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
@@ -106,6 +125,15 @@
          endingLineNumber = "130"
          landmarkName = "-passBackUserSettings:weight:userSex:"
          landmarkType = "5">
+=======
+         timestampString = "383120971.779221"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "133"
+         endingLineNumber = "133"
+         landmarkName = "@implementation DrinkingScreen"
+         landmarkType = "3">
+>>>>>>> Beta Master
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -121,7 +149,11 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
+<<<<<<< HEAD
          shouldBeEnabled = "Yes"
+=======
+         shouldBeEnabled = "No"
+>>>>>>> Beta Master
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "DrinkingScreen.m"
@@ -130,7 +162,63 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "54"
          endingLineNumber = "54"
+<<<<<<< HEAD
          landmarkName = "-viewDidLoad"
+=======
+         landmarkName = "-prepareForSegue:sender:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "DrinkingScreen.m"
+         timestampString = "382986029.224307"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "58"
+         endingLineNumber = "58"
+         landmarkName = "-prepareForSegue:sender:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SIB/ToDoA2Screen.m"
+         timestampString = "382988503.409598"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "77"
+         endingLineNumber = "77"
+         landmarkName = "-start_Web_View"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SIB/ToDoA2Screen.m"
+         timestampString = "382988548.000181"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "101"
+         endingLineNumber = "101"
+         landmarkName = "-start_Web_View"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "DrinkingScreen.m"
+         timestampString = "383121063.152292"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "286"
+         endingLineNumber = "286"
+         landmarkName = "-actionSheet:didDismissWithButtonIndex:"
+>>>>>>> Beta Master
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

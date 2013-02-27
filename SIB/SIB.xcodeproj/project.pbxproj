@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
+=======
+		3748A5CF16D5D73C004821BF /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3748A5CD16D5D73C004821BF /* Icon.png */; };
+		3748A5D016D5D73C004821BF /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3748A5CE16D5D73C004821BF /* Icon@2x.png */; };
+>>>>>>> Beta Master
 		37E1F91F16D271680076BD5A /* toDoLoad.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E1F91E16D271680076BD5A /* toDoLoad.png */; };
 		37F95FF616D199BD00DD3AFD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F95FF516D199BD00DD3AFD /* UIKit.framework */; };
 		37F95FF816D199BD00DD3AFD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F95FF716D199BD00DD3AFD /* Foundation.framework */; };
@@ -33,9 +38,18 @@
 		37F9603E16D1A25A00DD3AFD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F9603D16D1A25A00DD3AFD /* User.m */; };
 		37F9604116D1A8C100DD3AFD /* cabList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37F9603F16D1A8C100DD3AFD /* cabList.plist */; };
 		37F9604216D1A8C100DD3AFD /* DrinkList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37F9604016D1A8C100DD3AFD /* DrinkList.plist */; };
+<<<<<<< HEAD
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+=======
+		AA40ADD416D817A300B7BAE3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA40ADD316D817A300B7BAE3 /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3748A5CD16D5D73C004821BF /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		3748A5CE16D5D73C004821BF /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
+>>>>>>> Beta Master
 		37E1F91E16D271680076BD5A /* toDoLoad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toDoLoad.png; sourceTree = "<group>"; };
 		37F95FF216D199BD00DD3AFD /* SIB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SIB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F95FF516D199BD00DD3AFD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -75,6 +89,10 @@
 		37F9603D16D1A25A00DD3AFD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		37F9603F16D1A8C100DD3AFD /* cabList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cabList.plist; sourceTree = "<group>"; };
 		37F9604016D1A8C100DD3AFD /* DrinkList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DrinkList.plist; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		AA40ADD316D817A300B7BAE3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+>>>>>>> Beta Master
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +100,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
+=======
+				AA40ADD416D817A300B7BAE3 /* QuartzCore.framework in Frameworks */,
+>>>>>>> Beta Master
 				37F95FF616D199BD00DD3AFD /* UIKit.framework in Frameworks */,
 				37F95FF816D199BD00DD3AFD /* Foundation.framework in Frameworks */,
 				37F95FFA16D199BD00DD3AFD /* CoreGraphics.framework in Frameworks */,
@@ -112,6 +134,10 @@
 		37F95FF416D199BD00DD3AFD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+=======
+				AA40ADD316D817A300B7BAE3 /* QuartzCore.framework */,
+>>>>>>> Beta Master
 				37F95FF516D199BD00DD3AFD /* UIKit.framework */,
 				37F95FF716D199BD00DD3AFD /* Foundation.framework */,
 				37F95FF916D199BD00DD3AFD /* CoreGraphics.framework */,
@@ -141,6 +167,11 @@
 		37F95FFC16D199BD00DD3AFD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+=======
+				3748A5CD16D5D73C004821BF /* Icon.png */,
+				3748A5CE16D5D73C004821BF /* Icon@2x.png */,
+>>>>>>> Beta Master
 				37E1F91E16D271680076BD5A /* toDoLoad.png */,
 				37F95FFD16D199BD00DD3AFD /* SIB-Info.plist */,
 				37F95FFE16D199BD00DD3AFD /* InfoPlist.strings */,
@@ -239,6 +270,11 @@
 				37F9604116D1A8C100DD3AFD /* cabList.plist in Resources */,
 				37F9604216D1A8C100DD3AFD /* DrinkList.plist in Resources */,
 				37E1F91F16D271680076BD5A /* toDoLoad.png in Resources */,
+<<<<<<< HEAD
+=======
+				3748A5CF16D5D73C004821BF /* Icon.png in Resources */,
+				3748A5D016D5D73C004821BF /* Icon@2x.png in Resources */,
+>>>>>>> Beta Master
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +383,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SIB/SIB-Prefix.pch";
 				INFOPLIST_FILE = "SIB/SIB-Info.plist";
+<<<<<<< HEAD
+=======
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+>>>>>>> Beta Master
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -358,6 +398,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SIB/SIB-Prefix.pch";
 				INFOPLIST_FILE = "SIB/SIB-Info.plist";
+<<<<<<< HEAD
+=======
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+>>>>>>> Beta Master
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -9,13 +9,27 @@
 //NOT FUNCTIONAL
 
 #import "MyDrinkingScreen.h"
+<<<<<<< HEAD
 
 @interface MyDrinkingScreen ()
 
+=======
+#import <QuartzCore/QuartzCore.h>
+
+@interface MyDrinkingScreen ()
+
+@property int X_Line, Y_Line, x, y;
+
+>>>>>>> Beta Master
 @end
 
 @implementation MyDrinkingScreen
 
+<<<<<<< HEAD
+=======
+@synthesize X_Line, Y_Line, x, y;
+
+>>>>>>> Beta Master
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,7 +42,38 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+<<<<<<< HEAD
 	// Do any additional setup after loading the view.
+=======
+	
+    
+    
+    
+    
+}
+
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    [self createNewBarWithValue:.8 andImage:self.graphImageView];
+    
+}
+
+
+- (void)createNewBarWithValue:(float)percent andImage:(UIImageView *)newBar
+{
+    CABasicAnimation *scaleToValue = [CABasicAnimation animationWithKeyPath:@"transform.scale.y"];
+    scaleToValue.toValue = [NSNumber numberWithFloat:percent*2.5];
+    scaleToValue.fromValue = [NSNumber numberWithFloat:0];
+    scaleToValue.duration = 1.5f;
+    scaleToValue.delegate = self;
+    
+    newBar.layer.anchorPoint = CGPointMake(0.5, 1);
+    
+    [newBar.layer addAnimation:scaleToValue forKey:@"scaleUp"];
+    CGAffineTransform scaleTo = CGAffineTransformMakeScale( 1.0f, percent * 2.5);
+    newBar.transform = scaleTo;
+>>>>>>> Beta Master
 }
 
 - (void)didReceiveMemoryWarning

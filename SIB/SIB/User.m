@@ -9,6 +9,10 @@
 #import "User.h"
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> Beta Master
 @implementation User
 
 @synthesize sex;
@@ -18,11 +22,19 @@
 @synthesize numDrinks;
 @synthesize alcOz;
 @synthesize rageInProgress;
+<<<<<<< HEAD
+=======
+@synthesize isFirstLoad;
+>>>>>>> Beta Master
 @synthesize BAC;
 @synthesize maxBACHolder;
 @synthesize userColor;
 @synthesize overallStats;
+<<<<<<< HEAD
 @synthesize overallDrinks;
+=======
+
+>>>>>>> Beta Master
 
 - (NSString *) getFilePath {
     NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -93,7 +105,11 @@
     {
         maxBACHolder = BAC;
     }
+<<<<<<< HEAD
     [self saveData];
+=======
+    //[self saveData];
+>>>>>>> Beta Master
 
 }
 
@@ -120,11 +136,23 @@
         numDrinks = 0;
         alcOz = 0;
         rageInProgress = NO;
+<<<<<<< HEAD
         sex = m;
         BAC = 0.0;
         maxBACHolder = 0.0;
     }
     [self saveData];
+=======
+        isFirstLoad = YES;
+        sex = m;
+        BAC = 0.0;
+        maxBACHolder = 0.0;
+        NSNumber *zeroNum = [NSNumber numberWithInt:0];
+        overallStats = [[NSMutableDictionary alloc] initWithObjectsAndKeys:zeroNum, @"blue", zeroNum,  @"maize",
+                        zeroNum, @"red", nil];
+    }
+    //[self saveData];
+>>>>>>> Beta Master
     return self;
 }
 

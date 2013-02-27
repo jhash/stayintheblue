@@ -19,12 +19,19 @@ typedef enum {m, f} gender;
 @property int numDrinks;
 @property double alcOz;
 @property BOOL rageInProgress;
+@property BOOL isFirstLoad;
 @property double BAC;
 @property double maxBACHolder;
 @property UIImage *userColor;
 @property NSString *currentDrink;
+<<<<<<< HEAD:User.h
 @property NSDictionary *overallStats;
 @property NSDictionary *overallDrinks;
+=======
+@property NSMutableDictionary *overallStats;
+
+
+>>>>>>> Beta Master:SIB/SIB/User.h
 
 
 

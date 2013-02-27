@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface MyDrinkingScreen : UIViewController
+<<<<<<< HEAD
+=======
+@property (weak, nonatomic) IBOutlet UIImageView *graphImageView;
+
+>>>>>>> Beta Master
 
 @end

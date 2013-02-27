@@ -24,9 +24,19 @@
 @property (weak, nonatomic) IBOutlet UILabel *numDrinksLabel;
 @property (weak, nonatomic) IBOutlet UILabel *BACLabel;
 @property (weak, nonatomic) IBOutlet UIButton *buttonText;
+<<<<<<< HEAD
 
 
 - (IBAction)drinkPressed:(id)sender;
+=======
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *drinkPickerButton;
+@property (weak, nonatomic) IBOutlet UINavigationItem *topNavBar;
+
+
+- (IBAction)drinkPressed:(id)sender;
+- (IBAction)donePressed:(id)sender;
+>>>>>>> Beta Master
 
 
 @end

@@ -2,7 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+<<<<<<< HEAD
 	<key>Dummy item</key>
+=======
+	<key>Developer Hotline</key>
+>>>>>>> Beta Master
 	<integer>8105694845</integer>
 	<key>Across Town Cab</key>
 	<integer>7342165932</integer>
