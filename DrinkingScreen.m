@@ -16,7 +16,6 @@
 @interface DrinkingScreen ()
 @property NSTimer *t;
 
-
 @end
 
 @implementation DrinkingScreen
@@ -24,8 +23,6 @@
 @synthesize currentAlcOz;
 @synthesize user;
 @synthesize BACLabel, numDrinksLabel, buttonText,t;
-
-
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -50,23 +47,6 @@
         NightStatsScreen *nss = [segue destinationViewController];
         nss.numDrinks = user.numDrinks;
         nss.maxBAC = user.maxBACHolder;
-        
-        
-        
-        
-        
-        
-        
-        UIActionSheet *saveInfoSheet = [[UIActionSheet alloc] initWithTitle:@"Do you want to save this session?"
-                                                                   delegate:self
-                                                          cancelButtonTitle:@"NO"
-                                                     destructiveButtonTitle:@"YES"
-                                                          otherButtonTitles:nil, nil];
-        
-        //[saveInfoSheet showFromTabBar:self.tabBarController.tabBar];
-        [saveInfoSheet showFromTabBar:self.tabBarController.tabBar];
-        
-        
     }
 }
 
@@ -78,10 +58,6 @@
     }
     return self;
 }
-
-
-
-
 
 - (void)viewDidLoad
 {
@@ -116,33 +92,16 @@
         self.doneButton.hidden = YES;
         self.topNavBar.rightBarButtonItem.enabled = NO;
         
-        
     }
-    
-
-	
     //self.currentDrinkName.topItem.title = @"Light Beer";
 }
 
-
-
-
-
-
-
-
 - (void) viewDidAppear:(BOOL)animated
 {
-    
-
-    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [self performSegueWithIdentifier:@"toSettings" sender:self];
     });
-    
-    
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -198,39 +157,32 @@
     
     else //if the user is beginning a session, the drinkpicker will show automagically
     {
-        
-        
         user.rageInProgress = YES;
         self.doneButton.hidden = NO;
         self.topNavBar.rightBarButtonItem.enabled = YES;
         
         [self performSegueWithIdentifier:@"toDrinkPicker" sender:self];
         
-        
-        
         //uncomment these when above works
         user.startTime = [NSDate timeIntervalSinceReferenceDate];
         [buttonText setTitle:@"DRINK" forState:UIControlStateNormal]; //change button text
         t = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(onTick:) userInfo:nil repeats:YES];
         
-        
         //create a repeating timer with 10 second interval. Use onTick method below for selector
         
     }
-    
-    
 }
-
-
-
 
 - (IBAction)donePressed:(id)sender
 {
+    UIActionSheet *saveInfoSheet = [[UIActionSheet alloc] initWithTitle:@"Do you want to save this session?"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"Cancel"
+                                                 destructiveButtonTitle:@"Yes"
+                                                      otherButtonTitles:@"No", nil];
     
-    
-    
-    //[self performSegueWithIdentifier:@"toNightStats" sender:self];
-    
+    //[saveInfoSheet showFromTabBar:self.tabBarController.tabBar];
+    [saveInfoSheet showFromTabBar:self.tabBarController.tabBar];
 }
 
 -(void) userClear //clears reusable data
@@ -271,10 +223,11 @@
 }
 
 #pragma mark uiactionsheet delegate method
-- (void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if(buttonIndex != actionSheet.cancelButtonIndex)
+    if(buttonIndex == actionSheet.destructiveButtonIndex )
     {
+        
         NSString * color = [self calcGeneralColor:user.BAC];
         int num = [[user.overallStats objectForKey:color] integerValue] +1;
         [user.overallStats setObject:[NSNumber numberWithInt:num] forKey:color];
@@ -284,15 +237,18 @@
         }
         
         [self userClear];
+        [self performSegueWithIdentifier:@"toNightStats" sender:self];
+    } 
+    else if(buttonIndex != actionSheet.cancelButtonIndex)
+    {
+        [self userClear];
+        [self performSegueWithIdentifier:@"toNightStats" sender:self];
     }
     else
     {
-        [self userClear];
+        return;
     }
 }
-
-
-
 
 - (void) onTick: (NSTimer *) t
 {

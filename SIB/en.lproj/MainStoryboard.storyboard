@@ -9,7 +9,7 @@
             <objects>
                 <viewController title="Drinking" id="2" customClass="DrinkingScreen" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="16">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toDoLoad.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Bm-jX-hGV"/>
@@ -68,7 +68,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="drinkPressed:" destination="2" eventType="touchUpInside" id="7pT-Jd-Yud"/>
+                                    <action selector="drinkPressed:" destination="2" eventType="touchUpInside" id="bA1-Fe-dge"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="BAC:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2z-LX-yv9">
@@ -109,8 +109,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="donePressed:" destination="2" eventType="touchUpInside" id="T0d-Be-8GW"/>
                                     <action selector="donePressed:" destination="2" eventType="touchDragInside" id="xoD-be-8oJ"/>
-                                    <segue destination="bqW-nm-T5G" kind="modal" identifier="toNightStats" modalTransitionStyle="coverVertical" id="CK3-cc-DgJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -150,18 +150,19 @@
                         <outlet property="numDrinksLabel" destination="qJm-a9-2Yr" id="WXf-kK-BaB"/>
                         <outlet property="tempLabel" destination="YE6-6K-leJ" id="R6C-Kv-XMh"/>
                         <outlet property="topNavBar" destination="mtU-gY-XpH" id="xq5-nD-hiu"/>
+                        <segue destination="bqW-nm-T5G" kind="modal" identifier="toNightStats" id="Cm9-yM-v6C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653" y="-138"/>
+            <point key="canvasLocation" x="337" y="-246"/>
         </scene>
         <!--Cabs Screen - Cabs-->
         <scene sceneID="dji-fL-5ZC">
             <objects>
                 <tableViewController title="Cabs" id="xEg-hg-FWH" customClass="CabsScreen" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="56" sectionHeaderHeight="10" sectionFooterHeight="10" id="bSU-qB-pYE">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -184,14 +185,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iev-pz-x8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039" y="-138"/>
+            <point key="canvasLocation" x="337" y="414"/>
         </scene>
         <!--My Drinking Screen - My Drinking-->
         <scene sceneID="wKw-Tl-s1g">
             <objects>
                 <viewController title="My Drinking" id="sMF-5n-TL1" customClass="MyDrinkingScreen" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ofr-hc-De0">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toDoLoad.png" translatesAutoresizingMaskIntoConstraints="NO" id="MTo-pF-iUj"/>
@@ -219,14 +220,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zIN-V8-rPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653" y="-794"/>
+            <point key="canvasLocation" x="337" y="-906"/>
         </scene>
         <!--Settings Screen - Settings-->
         <scene sceneID="13">
             <objects>
                 <viewController title="Settings" id="3" customClass="SettingsScreen" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="17">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toDoLoad.png" translatesAutoresizingMaskIntoConstraints="NO" id="2mR-hm-IlU"/>
@@ -315,14 +316,14 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="653" y="498"/>
+            <point key="canvasLocation" x="753" y="-246"/>
         </scene>
         <!--To DoA2 Screen - ToDoA2-->
         <scene sceneID="dTC-sW-4f8">
             <objects>
                 <viewController title="ToDoA2" id="6dx-FA-fQP" customClass="ToDoA2Screen" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ihL-Ui-Ows">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toDoLoad.png" translatesAutoresizingMaskIntoConstraints="NO" id="2b7-sZ-srA">
@@ -366,14 +367,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5f5-zw-aa6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039" y="498"/>
+            <point key="canvasLocation" x="337" y="1066"/>
         </scene>
         <!--Night Stats Screen - Night Stats-->
         <scene sceneID="TGv-b2-lF2">
             <objects>
                 <viewController title="Night Stats" id="bqW-nm-T5G" customClass="NightStatsScreen" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="geD-rC-ge5">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toDoLoad.png" translatesAutoresizingMaskIntoConstraints="NO" id="vNg-gE-Z6w"/>
@@ -504,14 +505,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7vt-Sm-VSV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1410" y="506"/>
+            <point key="canvasLocation" x="2014" y="-246"/>
         </scene>
         <!--Info Screen - info-->
         <scene sceneID="GOZ-F0-VMQ">
             <objects>
                 <viewController title="info" id="tn3-bE-guF" customClass="InfoScreen" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fxc-wp-Sqp">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sa-n3-uFg">
@@ -565,14 +566,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xq7-PT-P2F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1410" y="-138"/>
+            <point key="canvasLocation" x="1606" y="-246"/>
         </scene>
         <!--Drink Picker Screen - Drinks-->
         <scene sceneID="qdO-ik-zp1">
             <objects>
                 <tableViewController storyboardIdentifier="drinkPickerScreen" title="Drinks" id="7bi-EZ-Tct" customClass="DrinkPickerScreen" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="S9P-UN-DJB">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -594,7 +595,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M0A-OB-h0Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039" y="-794"/>
+            <point key="canvasLocation" x="1175" y="-246"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -615,7 +616,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="180"/>
+            <point key="canvasLocation" x="-808" y="192"/>
         </scene>
     </scenes>
     <resources>
@@ -698,6 +699,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>

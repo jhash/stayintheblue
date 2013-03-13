@@ -61,10 +61,6 @@
     loadIndicator.hidden = NO;
     loadText.hidden = NO;
     [loadIndicator startAnimating];
-    
-
-    
-    
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -72,7 +68,7 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
                    ^{
-                       sleep(5);
+                       //sleep(5);
                        dispatch_async(dispatch_get_main_queue(), ^{
                            loadImage.hidden = YES;
                            loadText.hidden = YES;
@@ -80,9 +76,6 @@
                            [loadIndicator stopAnimating];
                        });
                    });
-                   
-                       
-    
 }
 
 
