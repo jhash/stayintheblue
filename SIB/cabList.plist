@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Developer Hotline</key>
+	<integer>8105694845</integer>
+	<key>Across Town Cab</key>
+	<integer>7342165932</integer>
+	<key>Ann Arbor Cab</key>
+	<integer>7342728009</integer>
+	<key>Ann Arbor Stadium Taxi</key>
+	<integer>7346950800</integer>
+	<key>Amazing Blue Taxi</key>
+	<integer>7346420010</integer>
+	<key>Yellow Cab</key>
+	<integer>7346624444</integer>
+	<key>Blue Cab</key>
+	<integer>7345472222</integer>
+</dict>
+</plist>
