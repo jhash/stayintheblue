@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Reachability.h"
 
 @interface ToDoA2Screen : UIViewController
 
@@ -14,4 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *toDoLoad;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *loadingText;
+
+@property Reachability *internetReachable;
+
 @end
