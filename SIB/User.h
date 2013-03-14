@@ -18,6 +18,7 @@ typedef enum {m, f} gender;
 @property int elapsedTime;
 @property int numDrinks;
 @property double alcOz;
+@property double proof;
 @property BOOL rageInProgress;
 @property BOOL isFirstLoad;
 @property double BAC;

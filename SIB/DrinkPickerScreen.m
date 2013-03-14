@@ -32,8 +32,6 @@
 {
     [super viewDidLoad];
     
-    
-    
     NSString *drinkList = [[NSBundle mainBundle]
                            pathForResource:@"DrinkList" ofType:@"plist"];
     
@@ -53,21 +51,18 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
     // Return the number of rows in the section.
     return [drinks count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     //creates cells for drinks
     static NSString *CellIdentifier = @"drinkType";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
@@ -85,8 +80,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
     //gets drinkname and corresponding alcOz
     NSString *selectedDrink = [drinkKeys objectAtIndex:indexPath.row];
     NSNumber *selectedDrinkAlcOz = [drinks valueForKey:selectedDrink];

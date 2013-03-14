@@ -8,8 +8,6 @@
 
 #import "User.h"
 
-
-
 @implementation User
 
 @synthesize sex;
@@ -18,6 +16,7 @@
 @synthesize elapsedTime;
 @synthesize numDrinks;
 @synthesize alcOz;
+@synthesize proof;
 @synthesize rageInProgress;
 @synthesize isFirstLoad;
 @synthesize BAC;
@@ -82,13 +81,28 @@
     //update the current time
     [self calcTime];
     
-    
-    //update the BAC
+    //old equation
+    /*/update the BAC
     if (sex == m) {
         BAC = (alcOz * 5.14/weight * .73) - (.015*(elapsedTime * .0002));
     }
     if (sex == f) {
         BAC = (alcOz * 5.14/weight * .66) - (.015*(elapsedTime * .0002));
+    }
+    */
+    
+    //update the BAC
+    //sources of grahams/Oz and proof calculation
+    //http://wiki.answers.com/Q/How_many_grams_of_alcohol_in_two_ounces_of_eighty_proof_whiskey
+    //source of BAC calculation
+    //http://www.had2know.com/society/how-to-calculate-bac.html
+    
+    if (sex == m) {
+        
+        BAC = (80.6*(alcOz*28.3495*proof/200)/(263.08627*weight)) - (.015*(elapsedTime * .0002));
+    }
+    if (sex == f) {
+        BAC = (80.6*(alcOz*28.3495*proof/200)/(222.26254*weight)) - (.015*(elapsedTime * .0002));
     }
 
     if (BAC > maxBACHolder)
@@ -121,6 +135,7 @@
         weight = 0;
         numDrinks = 0;
         alcOz = 0;
+        proof = 6; //default 80 proof drinks, implement into Drinks plist eventually
         rageInProgress = NO;
         isFirstLoad = YES;
         sex = m;

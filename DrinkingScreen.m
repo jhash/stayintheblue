@@ -143,8 +143,6 @@
     //check if user has started
     if(user.rageInProgress)
     {
-        
-
         //uncomment these when drinkPicker showing works, see else block
         
         user.alcOz += currentAlcOz;

@@ -18,14 +18,22 @@
 	<real>0.2</real>
 	<key>Jungle Juice</key>
 	<real>0.8</real>
-	<key>Shot</key>
-	<real>0.5</real>
-	<key>Heavy Beer</key>
-	<real>0.6</real>
-	<key>Light Beer</key>
-	<real>0.6</real>
+	<key>Shot [1.5 oz]</key>
+	<real>1.5</real>
+	<key>Double Shot [3 oz]</key>
+	<integer>3</integer>
+	<key>Heavy Beer [16 oz]</key>
+	<integer>16</integer>
+	<key>Heavy Beer (Tall) [24 oz]</key>
+	<integer>24</integer>
+	<key>Light Beer [12 oz]</key>
+	<integer>12</integer>
+	<key>Light Beer Bottle [16 oz]</key>
+	<integer>16</integer>
+	<key>Light Beer (Tall) [24 oz]</key>
+	<integer>24</integer>
 	<key>Purple Drank</key>
-	<integer>10</integer>
+	<integer>0</integer>
 	<key>Sugar Water</key>
 	<integer>0</integer>
 	<key>Mrs. Butterworth&apos;s</key>

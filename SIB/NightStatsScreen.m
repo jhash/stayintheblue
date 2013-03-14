@@ -47,20 +47,20 @@
     if([self.colorReachedLabel.text isEqual:@"BLUE"])
     {
         self.stayedInTheLabel.text = @"AND STAYED IN THE";
-        self.colorReachedLabel.textColor = [UIColor yellowColor];
-        self.colorReachedLabel.backgroundColor = [UIColor blueColor];
+        self.colorReachedLabel.textColor = [UIColor blueColor];
+        //self.colorReachedLabel.backgroundColor = [UIColor blueColor];
     }
     else if ([self.colorReachedLabel.text isEqual:@"MAIZE"])
     {
         self.stayedInTheLabel.text = @"AND GOT INTO THE";
-        self.colorReachedLabel.textColor = [UIColor blueColor];
-        self.colorReachedLabel.backgroundColor = [UIColor yellowColor];
+        self.colorReachedLabel.textColor = [UIColor yellowColor];
+        //self.colorReachedLabel.backgroundColor = [UIColor yellowColor];
     }
     else
     {
         self.stayedInTheLabel.text = @"AND GOT INTO THE";
-        self.colorReachedLabel.textColor = [UIColor blackColor];
-        self.colorReachedLabel.backgroundColor = [UIColor redColor];
+        self.colorReachedLabel.textColor = [UIColor redColor];
+        //self.colorReachedLabel.backgroundColor = [UIColor redColor];
     }
     
     
