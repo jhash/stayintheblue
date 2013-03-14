@@ -630,6 +630,14 @@
         </class>
         <class className="DrinkPickerScreen" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DrinkPickerScreen.h"/>
+<<<<<<< HEAD
+=======
+            <relationships>
+                <relationship kind="action" name="donePressed:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+            </relationships>
+>>>>>>> graphs
         </class>
         <class className="DrinkingScreen" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DrinkingScreen.h"/>
@@ -637,12 +645,19 @@
                 <relationship kind="action" name="donePressed:"/>
                 <relationship kind="action" name="drinkPressed:"/>
                 <relationship kind="outlet" name="BACLabel" candidateClass="UILabel"/>
+<<<<<<< HEAD
+=======
+                <relationship kind="outlet" name="UserImage" candidateClass="UIImageView"/>
+>>>>>>> graphs
                 <relationship kind="outlet" name="buttonText" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="currentDrinkName" candidateClass="UINavigationBar"/>
                 <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="drinkPickerButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="numDrinksLabel" candidateClass="UILabel"/>
+<<<<<<< HEAD
                 <relationship kind="outlet" name="tempLabel" candidateClass="UILabel"/>
+=======
+>>>>>>> graphs
                 <relationship kind="outlet" name="topNavBar" candidateClass="UINavigationItem"/>
             </relationships>
         </class>
@@ -655,7 +670,17 @@
         <class className="MyDrinkingScreen" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MyDrinkingScreen.h"/>
             <relationships>
+<<<<<<< HEAD
                 <relationship kind="outlet" name="graphImageView" candidateClass="UIImageView"/>
+=======
+                <relationship kind="outlet" name="blueFrame" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="blueNum" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="maizeFrame" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="maizeNum" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="redFrame" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="redNum" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+>>>>>>> graphs
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
