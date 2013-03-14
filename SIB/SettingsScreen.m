@@ -65,20 +65,6 @@
 
 - (IBAction)callDismiss:(id)sender // done button
 {
-    BOOL didEnterWeight = YES;
-    if([weightField.text isEqualToString:@""])
-    {
-        NSString *errorMsg = @"Please enter your weight";
-        
-        UIAlertView *weightError = [[UIAlertView alloc]
-                                    initWithTitle:@"Error"
-                                    message:errorMsg
-                                    delegate:self
-                                    cancelButtonTitle:@"OK"
-                                    otherButtonTitles:nil, nil];
-        didEnterWeight = NO;
-        [weightError show];
-    }
     
     
     if(weightField.isFirstResponder) //if keyboard still active on done
@@ -91,12 +77,8 @@
     user.sex = [genderPicker selectedSegmentIndex];
     
     //pass them to up to drinking screen
-    
-    if(didEnterWeight)
-    {
-        [delegate passBackUserSettings:self weight:user.weight userSex:user.sex];
-        [self dismissViewControllerAnimated:YES completion:nil]; //dismiss screen
-    }
+    [delegate passBackUserSettings:self weight:user.weight userSex:user.sex];
+    [self dismissViewControllerAnimated:YES completion:nil]; //dismiss screen
 }
 
 - (IBAction)dismissKeyboard:(id)sender
