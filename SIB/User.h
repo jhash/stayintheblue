@@ -18,11 +18,13 @@ typedef enum {m, f} gender;
 @property int elapsedTime;
 @property int numDrinks;
 @property double alcOz;
+@property double proof;
 @property BOOL rageInProgress;
 @property BOOL isFirstLoad;
 @property double BAC;
 @property double maxBACHolder;
 @property UIImage *userColor;
+@property NSString *currentDrink;
 @property NSMutableDictionary *overallStats;
 
 
@@ -34,13 +36,15 @@ typedef enum {m, f} gender;
 
 - (void) calcTime;
 
+- (NSString *) getFilePath;
+
+- (void) saveData;
+
+- (void) loadData;
+
 - (void) updateColor;
 
-- (void) encodeWithCoder:(NSCoder *) encoder;
 
-- (id) initWithCoder:(NSCoder *) decoder;
-
--(id) copyWithZone:(NSZone *) zone;
 
 
 

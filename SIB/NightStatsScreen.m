@@ -34,6 +34,7 @@
     
     
     self.colorReachedLabel.text = [self calcGeneralColor:maxBAC];
+
     maxBacLabel.text = [NSString stringWithFormat:@"%.2f", maxBAC];
     numDrinksLabel.text = [NSString stringWithFormat:@"%i", numDrinks];
     if(numDrinks == 1)
@@ -46,10 +47,20 @@
     if([self.colorReachedLabel.text isEqual:@"BLUE"])
     {
         self.stayedInTheLabel.text = @"AND STAYED IN THE";
+        self.colorReachedLabel.textColor = [UIColor blueColor];
+        //self.colorReachedLabel.backgroundColor = [UIColor blueColor];
+    }
+    else if ([self.colorReachedLabel.text isEqual:@"MAIZE"])
+    {
+        self.stayedInTheLabel.text = @"AND GOT INTO THE";
+        self.colorReachedLabel.textColor = [UIColor yellowColor];
+        //self.colorReachedLabel.backgroundColor = [UIColor yellowColor];
     }
     else
     {
         self.stayedInTheLabel.text = @"AND GOT INTO THE";
+        self.colorReachedLabel.textColor = [UIColor redColor];
+        //self.colorReachedLabel.backgroundColor = [UIColor redColor];
     }
     
     
@@ -61,10 +72,6 @@
     loadIndicator.hidden = NO;
     loadText.hidden = NO;
     [loadIndicator startAnimating];
-    
-
-    
-    
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -72,14 +79,14 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
                    ^{
-                       sleep(3);
+                       //sleep(5);
                        dispatch_async(dispatch_get_main_queue(), ^{
                            loadImage.hidden = YES;
                            loadText.hidden = YES;
                            loadIndicator.hidden = YES;
                            [loadIndicator stopAnimating];
                        });
-                   });  
+                   });
 }
 
 
