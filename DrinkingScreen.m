@@ -227,6 +227,7 @@
 {
     if(buttonIndex == actionSheet.destructiveButtonIndex )
     {
+        [self performSegueWithIdentifier:@"toNightStats" sender:self];
         
         NSString * color = [self calcGeneralColor:user.BAC];
         int num = [[user.overallStats objectForKey:color] integerValue] +1;
@@ -237,12 +238,12 @@
         }
         
         [self userClear];
-        [self performSegueWithIdentifier:@"toNightStats" sender:self];
     } 
     else if(buttonIndex != actionSheet.cancelButtonIndex)
     {
-        [self userClear];
         [self performSegueWithIdentifier:@"toNightStats" sender:self];
+        
+        [self userClear];
     }
     else
     {
