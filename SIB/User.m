@@ -8,6 +8,8 @@
 
 #import "User.h"
 
+
+
 @implementation User
 
 @synthesize sex;
@@ -25,55 +27,6 @@
 @synthesize overallStats;
 
 
-- (NSString *) getFilePath {
-    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    return [[pathArray objectAtIndex:0] stringByAppendingPathComponent:@"saved.plist"];
-}
-
-
-- (void) saveData{
-    NSArray *value = [[NSArray alloc] initWithObjects: [NSNumber  numberWithInt:sex], [NSNumber numberWithInt:weight], [NSNumber numberWithInt:startTime], [NSNumber numberWithDouble:alcOz], rageInProgress, [NSNumber numberWithDouble:BAC], maxBACHolder, nil];
-    
-    [value writeToFile:[self getFilePath] atomically:YES];
-}
-
-- (void) loadData {
-    NSString *myPath = [self getFilePath];
-    
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:myPath];
-    NSLog(@"%c", fileExists);
-
-    
-    //check if file exists
-    if (fileExists){
-        NSArray *values = [[NSArray alloc] initWithContentsOfFile:myPath];
-        
-        
-        // if so, load values into user
-        // sex
-        if ([[values objectAtIndex:0] integerValue] == 0)
-        {
-            sex = m;
-        }
-        else {
-            sex = f;
-        }
-        weight = [[values objectAtIndex:1] integerValue];
-        startTime = [[values objectAtIndex:2] integerValue];
-        elapsedTime = [[values objectAtIndex:3] integerValue];
-        alcOz = [[values objectAtIndex:4] doubleValue];
-        rageInProgress = [[values objectAtIndex:5] boolValue];
-        BAC = [[values objectAtIndex:6] doubleValue];
-        maxBACHolder = [[values objectAtIndex:7] doubleValue];
-        NSLog(@"%@", values);
-     }
-    
-    
-}
-
-
-
-
 
 
 - (void) calcBAC
@@ -83,13 +36,13 @@
     
     //old equation
     /*/update the BAC
-    if (sex == m) {
-        BAC = (alcOz * 5.14/weight * .73) - (.015*(elapsedTime * .0002));
-    }
-    if (sex == f) {
-        BAC = (alcOz * 5.14/weight * .66) - (.015*(elapsedTime * .0002));
-    }
-    */
+     if (sex == m) {
+     BAC = (alcOz * 5.14/weight * .73) - (.015*(elapsedTime * .0002));
+     }
+     if (sex == f) {
+     BAC = (alcOz * 5.14/weight * .66) - (.015*(elapsedTime * .0002));
+     }
+     */
     
     //update the BAC
     //sources of grahams/Oz and proof calculation
@@ -104,12 +57,12 @@
     if (sex == f) {
         BAC = (80.6*(alcOz*28.3495*proof/200)/(222.26254*weight)) - (.015*(elapsedTime * .0002));
     }
-
+    
     if (BAC > maxBACHolder)
     {
         maxBACHolder = BAC;
     }
-    //[self saveData];
+    [self updateColor];
 
 }
 
@@ -121,7 +74,157 @@
 
 - (void) updateColor
 {
-    //need images for color, series of if statments will update the image based on the color. 
+    double bac = self.BAC;
+    
+    if (bac < .01)
+    {
+        userColor = [UIImage imageNamed:@"Blue_1.png"];
+    }
+    else if(bac >.01 && bac < .02)
+    {
+        userColor = [UIImage imageNamed:@"Blue_2.png"];
+    }
+    else if(bac > .02 && bac < .03)
+    {
+        userColor = [UIImage imageNamed:@"Blue_3.png"];
+    }
+    else if(bac > .03 && bac < .04)
+    {
+        userColor = [UIImage imageNamed:@"Blue_4.png"];
+    }
+    else if(bac > .04 && bac < .05)
+    {
+        userColor  = [UIImage imageNamed:@"Blue_5.png"];
+    }
+    else if(bac > .05 && bac < .06)
+    {
+        userColor = [UIImage imageNamed:@"Blue_6.png"];
+    }
+    else if(bac > .06 && bac < .07)
+    {
+        userColor = [UIImage imageNamed:@"Blue_7.png"];
+    }
+    else if(bac > .07 && bac < .087 )
+    {
+        userColor = [UIImage imageNamed:@"Maize_1.png"];
+    }
+    else if(bac > .087 && bac < .104)
+    {
+        userColor = [UIImage imageNamed:@"Maize_2.png"];
+    }
+    else if(bac > .104 && bac < 0.121)
+    {
+        userColor = [UIImage imageNamed:@"Maize_3.png"];
+    }
+    else if(bac > 0.121 && bac < 0.138 )
+    {
+        userColor = [UIImage imageNamed:@"Maize_4.png"];
+    }
+    else if(bac > 0.138 && bac < 0.155)
+    {
+        userColor = [UIImage imageNamed:@"Maize_5.png"];
+    }
+    else if(bac > 0.155 && bac < 0.172)
+    {
+        userColor = [UIImage imageNamed:@"Maize_6.png"];
+    }
+    else if(bac > 0.172 && bac < 0.19)
+    {
+        userColor = [UIImage imageNamed:@"Maize_7.png"];
+    }
+    else if(bac > .19 && bac < .2)
+    {
+        userColor = [UIImage imageNamed:@"Red_1.png"];
+    }
+    else if(bac > .2 && bac < .21)
+    {
+        userColor = [UIImage imageNamed:@"Red_2.png"];
+    }
+    else if(bac > .21 && bac <.22)
+    {
+        userColor = [UIImage imageNamed:@"Red_3.png"];
+    }
+    else if(bac > .22 && bac < .23)
+    {
+        userColor = [UIImage imageNamed:@"Red_4.png"];
+    }
+    else if(bac > .23 && bac <.24)
+    {
+        userColor = [UIImage imageNamed:@"Red_5.png"];
+    }
+    else if(bac> .24 && bac < .25)
+    {
+        userColor = [UIImage imageNamed:@"Red_6.png"];
+    }
+    else
+    {
+        userColor = [UIImage imageNamed:@"Red_7.png"];
+    }
+}
+
+
+
+#pragma mark encoding and decoding
+
+- (void) encodeWithCoder:(NSCoder *) encoder
+{
+    [encoder encodeInt:self.weight forKey:@"weight"];
+    [encoder encodeInt:self.sex forKey:@"sex"];
+    [encoder encodeInt:self.numDrinks forKey:@"numDrinks"];
+    [encoder encodeInt:self.startTime forKey:@"startTime"];
+    [encoder encodeInt:self.elapsedTime forKey:@"elapsedTime"];
+    [encoder encodeDouble:self.BAC forKey:@"bac"];
+    [encoder encodeDouble:self.maxBACHolder forKey:@"maxBACHolder"];
+    [encoder encodeDouble:self.alcOz forKey:@"alcOz"];
+    [encoder encodeBool:self.rageInProgress forKey:@"rageInProgress"];
+    [encoder encodeObject:self.overallStats forKey:@"overallStats"];
+}
+
+- (id) initWithCoder:(NSCoder *) decoder
+{
+    if(self = [super init])
+    {
+        weight = [decoder decodeIntForKey:@"weight"];
+        sex = [decoder decodeIntForKey:@"sex"];
+        numDrinks = [decoder decodeIntForKey:@"numDrinks"];
+        startTime = [decoder decodeIntForKey:@"startTime"];
+        elapsedTime = [decoder decodeIntForKey:@"elapsedTime"];
+        BAC = [decoder decodeDoubleForKey:@"bac"];
+        maxBACHolder = [decoder decodeDoubleForKey:@"maxBACHolder"];
+        alcOz = [decoder decodeDoubleForKey:@"alcOz"];
+        rageInProgress = [decoder decodeBoolForKey:@"rageInProgress"];
+        overallStats = [decoder decodeObjectForKey:@"overallStats"];
+    }
+    
+    //fallback else block, program should never reach this code
+    else
+    {
+        self = [self init];
+    }
+    return self;
+}
+
+
+-(id) copyWithZone:(NSZone *) zone
+{
+    User *copy = [[[self class] allocWithZone:zone] init];
+    
+    //object copy
+    copy.overallStats = [self.overallStats copyWithZone:zone];
+    
+    
+    //standard type copies
+    copy.weight = self.weight;
+    copy.sex = self.sex;
+    copy.numDrinks = self.numDrinks;
+    copy.startTime = self.startTime;
+    copy.elapsedTime = self.startTime;
+    copy.BAC = self.BAC;
+    copy.maxBACHolder = self.maxBACHolder;
+    copy.alcOz = self.alcOz;
+    copy.rageInProgress = self.rageInProgress;
+    
+    return copy;
 }
 
 
@@ -135,17 +238,16 @@
         weight = 0;
         numDrinks = 0;
         alcOz = 0;
-        proof = 6; //default 80 proof drinks, implement into Drinks plist eventually
+        proof = 6;
         rageInProgress = NO;
         isFirstLoad = YES;
         sex = m;
         BAC = 0.0;
         maxBACHolder = 0.0;
         NSNumber *zeroNum = [NSNumber numberWithInt:0];
-        overallStats = [[NSMutableDictionary alloc] initWithObjectsAndKeys:zeroNum, @"blue", zeroNum,  @"maize",
-                        zeroNum, @"red", nil];
+        overallStats = [[NSMutableDictionary alloc] initWithObjectsAndKeys:zeroNum, @"blue", zeroNum,  @"maize", zeroNum, @"red", nil];
+        userColor = [UIImage imageNamed:@"Blue_1.png"];
     }
-    //[self saveData];
     return self;
 }
 
