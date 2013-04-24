@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface CabsScreen : UITableViewController
+@interface CabsScreen : UITableViewController <CLLocationManagerDelegate>
 
 @property (strong, nonatomic) NSDictionary  *cabs;
 @property (strong, nonatomic) NSArray *cabKeys;
-
+@property (strong, nonatomic) UILabel *crossStreets;
+@property (strong, nonatomic) UIView *header;
 @end

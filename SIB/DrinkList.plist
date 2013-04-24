@@ -2,41 +2,31 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>MEGA ALCOHOL</key>
-	<integer>2</integer>
+	<key>Boot (Heidelberg)</key>
+	<real>1.2</real>
+	<key>Long Island Iced Tea</key>
+	<integer>3</integer>
 	<key>Mind Probe</key>
 	<real>0.8</real>
 	<key>SharkBowl</key>
-	<integer>1</integer>
-	<key>FishBowl</key>
 	<real>0.8</real>
+	<key>Beer (Solo Cup)</key>
+	<real>0.8</real>
+	<key>FishBowl</key>
+	<integer>2</integer>
 	<key>Wine</key>
 	<real>0.6</real>
 	<key>Martini</key>
-	<real>0.4</real>
-	<key>Irish Coffee</key>
-	<real>0.2</real>
+	<real>0.5</real>
 	<key>Jungle Juice</key>
-	<real>0.8</real>
-	<key>Shot [1.5 oz]</key>
-	<real>1.5</real>
-	<key>Double Shot [3 oz]</key>
-	<integer>3</integer>
-	<key>Heavy Beer [16 oz]</key>
-	<integer>16</integer>
-	<key>Heavy Beer (Tall) [24 oz]</key>
-	<integer>24</integer>
-	<key>Light Beer [12 oz]</key>
-	<integer>12</integer>
-	<key>Light Beer Bottle [16 oz]</key>
-	<integer>16</integer>
-	<key>Light Beer (Tall) [24 oz]</key>
-	<integer>24</integer>
-	<key>Purple Drank</key>
-	<integer>0</integer>
-	<key>Sugar Water</key>
-	<integer>0</integer>
-	<key>Mrs. Butterworth&apos;s</key>
-	<real>0.1</real>
+	<integer>2</integer>
+	<key>Shot</key>
+	<real>0.5</real>
+	<key>Beer</key>
+	<real>0.6</real>
+	<key>Angry Ogre</key>
+	<real>1.3</real>
+	<key>40oz </key>
+	<real>3.2</real>
 </dict>
 </plist>

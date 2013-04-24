@@ -18,31 +18,30 @@ typedef enum {m, f} gender;
 @property int elapsedTime;
 @property int numDrinks;
 @property double alcOz;
-@property double proof;
 @property BOOL rageInProgress;
-@property BOOL isFirstLoad;
+@property BOOL sendReminders;
 @property double BAC;
+@property double currentAlcOz;
+@property double lastAlcOz;
 @property double maxBACHolder;
-@property UIImage *userColor;
-@property NSString *currentDrink;
 @property NSMutableDictionary *overallStats;
+@property NSMutableDictionary *drinksHad;
+@property NSString * currentDrink;
+@property NSString *lastDateDrank;
 
 
 
 
 
++ (User *) sharedUser;
 
 - (void) calcBAC;
 
 - (void) calcTime;
-
-- (NSString *) getFilePath;
-
-- (void) saveData;
-
-- (void) loadData;
-
-- (void) updateColor;
+- (void) saveUser;
+- (void) loadUser;
+- (void) toString;
+-(double)calcSingleDrinkUndoBAC;
 
 
 

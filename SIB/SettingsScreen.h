@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "MTStatusBarOverlay.h"
+
 
 
 @class  SettingsScreen;
@@ -23,9 +25,10 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *weightField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *genderPicker;
+@property (weak, nonatomic) IBOutlet UISwitch *reminderSwitch;
 @property User *user;
 @property (nonatomic, weak) id <SettingsScreenDelegate> delegate;
-
+@property NSString *num;
 
 - (IBAction)DidChangeToFemale:(id)sender;
 - (IBAction)callDismiss:(id)sender;

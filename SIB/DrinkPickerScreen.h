@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "DrinkingScreen.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 
@@ -25,5 +25,17 @@
 @property (nonatomic, strong) NSDictionary *drinks;
 @property (nonatomic, strong) NSArray *drinkKeys;
 @property (nonatomic, weak) id <DrinkPickerScreenDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property NSString *colorLevel;
 
+@property NSString *currentDrink;
+@property UIColor *blue;
+@property UIColor *darkerBlue;
+@property UIColor *maize;
+@property UIColor *darkerMaize;
+@property UIColor *red;
+@property UIColor *darkerRed;
+
+- (IBAction)donePressed:(UIBarButtonItem *)sender;
 @end

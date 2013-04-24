@@ -12,12 +12,13 @@
 
 @interface NightStatsScreen ()
 
+
 @end
 
 @implementation NightStatsScreen
 
+
 @synthesize maxBAC,maxBacLabel,numDrinks,numDrinksLabel;
-@synthesize loadImage,loadIndicator,loadText;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,77 +33,64 @@
 {
     [super viewDidLoad];
     
+    UIColor *blueCol = [UIColor colorWithRed:(50.0/255.0)
+                                       green:(85.0/255.0)
+                                        blue:(150.0/255.0)
+                                       alpha:1.0];
+    UIColor *maizeCol = [UIColor colorWithRed:(232.0/255.0)
+                                        green:(237.0/255.0)
+                                         blue:(19.0/255.0)
+                                        alpha:1.0];
+    UIColor *redCol = [UIColor colorWithRed:(168.0/255.0)
+                                      green:(40.0/255.0)
+                                       blue:(34.0/255.0)
+                                      alpha:1.0];
     
-    self.colorReachedLabel.text = [self calcGeneralColor:maxBAC];
-
+    
     maxBacLabel.text = [NSString stringWithFormat:@"%.2f", maxBAC];
     numDrinksLabel.text = [NSString stringWithFormat:@"%i", numDrinks];
-    if(numDrinks == 1)
-    {
-        self.drinkOrDrinks.text = @"DRINK";
-    }
-    
-    
+    int levelReached = [self calcGeneralColor:maxBAC];
+
     //if user stayed in the blue, say that
-    if([self.colorReachedLabel.text isEqual:@"BLUE"])
+    if(levelReached == 1 )
     {
-        self.stayedInTheLabel.text = @"AND STAYED IN THE";
-        self.colorReachedLabel.textColor = [UIColor blueColor];
-        //self.colorReachedLabel.backgroundColor = [UIColor blueColor];
+        self.finishImage.image = [UIImage imageNamed:@"FinishBlue.png"];
+        self.peakText.textColor = blueCol;
     }
-    else if ([self.colorReachedLabel.text isEqual:@"MAIZE"])
+    else if (levelReached == 2)
     {
-        self.stayedInTheLabel.text = @"AND GOT INTO THE";
-        self.colorReachedLabel.textColor = [UIColor yellowColor];
-        //self.colorReachedLabel.backgroundColor = [UIColor yellowColor];
+        self.finishImage.image = [UIImage imageNamed:@"FinishMaize.png"];
+        self.peakText.textColor = maizeCol;
     }
     else
     {
-        self.stayedInTheLabel.text = @"AND GOT INTO THE";
-        self.colorReachedLabel.textColor = [UIColor redColor];
-        //self.colorReachedLabel.backgroundColor = [UIColor redColor];
+        self.finishImage.image = [UIImage imageNamed:@"FinishRed.png"];
+        self.peakText.textColor = redCol;
     }
     
     
-    
-    NSArray *loadingArray = [[NSArray alloc] initWithObjects:@"Measuring Remaining Dignity", @"Calculating Booze Coefficient", @"Instagramming Drink Pics", @"#YOLOING", nil];
-    int randomNum = arc4random_uniform([loadingArray count]);
-    loadText.text = [loadingArray objectAtIndex:randomNum];
-    
-    loadIndicator.hidden = NO;
-    loadText.hidden = NO;
-    [loadIndicator startAnimating];
 }
 
 -(void) viewDidAppear:(BOOL)animated
 {
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
-                   ^{
-                       //sleep(5);
-                       dispatch_async(dispatch_get_main_queue(), ^{
-                           loadImage.hidden = YES;
-                           loadText.hidden = YES;
-                           loadIndicator.hidden = YES;
-                           [loadIndicator stopAnimating];
-                       });
-                   });
+ 
 }
 
 
-- (NSString *) calcGeneralColor: (double) BAC
+- (int) calcGeneralColor: (double) BAC
 {
     if(BAC < .07)
     {
-        return @"BLUE";
+        return 1;
     }
     if(BAC > .07 && BAC < .19)
     {
-        return @"MAIZE";
+        return 2;
     }
     else
     {
-        return @"RED";
+        return 3;
     }
 }
 

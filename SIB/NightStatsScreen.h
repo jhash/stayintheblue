@@ -11,17 +11,13 @@
 @interface NightStatsScreen : UIViewController
 @property int numDrinks;
 @property double maxBAC;
-@property (weak, nonatomic) IBOutlet UIImageView *loadImage;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadIndicator;
-@property (weak, nonatomic) IBOutlet UILabel *loadText;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *numDrinksLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *maxBacLabel;
-@property (weak, nonatomic) IBOutlet UILabel *colorReachedLabel;
-@property (weak, nonatomic) IBOutlet UILabel *drinkOrDrinks;
-@property (weak, nonatomic) IBOutlet UILabel *stayedInTheLabel;
+@property (weak, nonatomic) IBOutlet UILabel *peakText;
+@property (weak, nonatomic) IBOutlet UIImageView *finishImage;
 
 - (IBAction)donePressed:(id)sender;
 @end

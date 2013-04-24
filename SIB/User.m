@@ -8,6 +8,8 @@
 
 #import "User.h"
 
+
+
 @implementation User
 
 @synthesize sex;
@@ -16,63 +18,30 @@
 @synthesize elapsedTime;
 @synthesize numDrinks;
 @synthesize alcOz;
-@synthesize proof;
 @synthesize rageInProgress;
-@synthesize isFirstLoad;
+@synthesize sendReminders;
 @synthesize BAC;
+@synthesize currentAlcOz;
+@synthesize lastAlcOz;
+@synthesize currentDrink;
 @synthesize maxBACHolder;
-@synthesize userColor;
 @synthesize overallStats;
+@synthesize drinksHad;
+@synthesize lastDateDrank;
 
 
-- (NSString *) getFilePath {
-    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    return [[pathArray objectAtIndex:0] stringByAppendingPathComponent:@"saved.plist"];
-}
 
+static User *sharedUser;
 
-- (void) saveData{
-    NSArray *value = [[NSArray alloc] initWithObjects: [NSNumber  numberWithInt:sex], [NSNumber numberWithInt:weight], [NSNumber numberWithInt:startTime], [NSNumber numberWithDouble:alcOz], rageInProgress, [NSNumber numberWithDouble:BAC], maxBACHolder, nil];
++(User *)sharedUser {
     
-    [value writeToFile:[self getFilePath] atomically:YES];
-}
-
-- (void) loadData {
-    NSString *myPath = [self getFilePath];
-    
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:myPath];
-    NSLog(@"%c", fileExists);
-
-    
-    //check if file exists
-    if (fileExists){
-        NSArray *values = [[NSArray alloc] initWithContentsOfFile:myPath];
+    if(!sharedUser) {
         
-        
-        // if so, load values into user
-        // sex
-        if ([[values objectAtIndex:0] integerValue] == 0)
-        {
-            sex = m;
-        }
-        else {
-            sex = f;
-        }
-        weight = [[values objectAtIndex:1] integerValue];
-        startTime = [[values objectAtIndex:2] integerValue];
-        elapsedTime = [[values objectAtIndex:3] integerValue];
-        alcOz = [[values objectAtIndex:4] doubleValue];
-        rageInProgress = [[values objectAtIndex:5] boolValue];
-        BAC = [[values objectAtIndex:6] doubleValue];
-        maxBACHolder = [[values objectAtIndex:7] doubleValue];
-        NSLog(@"%@", values);
-     }
+        sharedUser = [[User alloc] init];
+    }
     
-    
+    return sharedUser;
 }
-
-
-
 
 
 
@@ -80,16 +49,9 @@
 {
     //update the current time
     [self calcTime];
+    //NSLog(@"time: %i", self.elapsedTime);
     
-    //old equation
-    /*/update the BAC
-    if (sex == m) {
-        BAC = (alcOz * 5.14/weight * .73) - (.015*(elapsedTime * .0002));
-    }
-    if (sex == f) {
-        BAC = (alcOz * 5.14/weight * .66) - (.015*(elapsedTime * .0002));
-    }
-    */
+
     
     //update the BAC
     //sources of grahams/Oz and proof calculation
@@ -99,18 +61,36 @@
     
     if (sex == m) {
         
-        BAC = (80.6*(alcOz*28.3495*proof/200)/(263.08627*weight)) - (.015*(elapsedTime * .0002));
+        BAC = (80.6*(alcOz*23.36)/(263.08627*weight)) - (.015*(elapsedTime * .0002));
     }
     if (sex == f) {
-        BAC = (80.6*(alcOz*28.3495*proof/200)/(222.26254*weight)) - (.015*(elapsedTime * .0002));
+        BAC = (80.6*(alcOz*23.36)/(222.26254*weight)) - (.015*(elapsedTime * .0002));
     }
-
+    
     if (BAC > maxBACHolder)
     {
         maxBACHolder = BAC;
     }
-    //[self saveData];
+    if (BAC < 0)
+    {
+        BAC = 0;
+    }
+    [self saveUser];
+}
 
+-(double)calcSingleDrinkUndoBAC
+{
+    double retVal;
+    if (sex == m) {
+        
+        retVal = (80.6*(lastAlcOz*23.36)/(263.08627*weight)) - (.015*(elapsedTime * .0002));
+    }
+    if (sex == f) {
+        retVal = (80.6*(lastAlcOz*23.36)/(222.26254*weight)) - (.015*(elapsedTime * .0002));
+    }
+    
+    return retVal;
+    
 }
 
 - (void) calcTime
@@ -119,10 +99,82 @@
 }
 
 
-- (void) updateColor
+
+
+- (void) saveUser
 {
-    //need images for color, series of if statments will update the image based on the color. 
+    NSString *filepath = [self getFilePath];
+    
+    NSMutableData *data = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    
+    [archiver encodeInt:self.weight forKey:@"weight"];
+    [archiver encodeInt:self.sex forKey:@"sex"];
+    [archiver encodeInt:self.numDrinks forKey:@"numDrinks"];
+    [archiver encodeInt:self.startTime forKey:@"startTime"];
+    [archiver encodeInt:self.elapsedTime forKey:@"elapsedTime"];
+    [archiver encodeDouble:self.BAC forKey:@"bac"];
+    [archiver encodeDouble:self.currentAlcOz forKey:@"currentAlcOz"];
+    [archiver encodeDouble:self.lastAlcOz forKey:@"lastAlcOz"];
+    [archiver encodeDouble:self.maxBACHolder forKey:@"maxBACHolder"];
+    [archiver encodeDouble:self.alcOz forKey:@"alcOz"];
+    [archiver encodeBool:self.rageInProgress forKey:@"rageInProgress"];
+    [archiver encodeBool:self.sendReminders forKey:@"sendReminders"];
+    [archiver encodeObject:self.overallStats forKey:@"overallStats"];
+    [archiver encodeObject:self.drinksHad forKey:@"drinksHad"];
+    [archiver encodeObject:self.currentDrink forKey:@"currentDrink"];
+    [archiver encodeObject:self.lastDateDrank forKey:@"lastDateDrank"];
+    
+    [archiver finishEncoding];
+    
+    BOOL success = [data writeToFile:filepath atomically:YES];
+    
+    
+    //NSLog(@"%@", success ? @"YES" : @"NO");
 }
+
+
+- (NSString *) getFilePath
+{
+    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [[pathArray objectAtIndex:0] stringByAppendingPathComponent:@"saved.plist"];
+}
+
+- (void) loadUser
+{
+    NSString *filepath = [self getFilePath];
+    
+    NSData *data = [[NSData alloc] initWithContentsOfFile:filepath];
+    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    
+    
+    self.weight = [unarchiver decodeIntForKey:@"weight"];
+    self.sex = [unarchiver decodeIntForKey:@"sex"];
+    self.numDrinks = [unarchiver decodeIntForKey:@"numDrinks"];
+    self.startTime = [unarchiver decodeIntForKey:@"startTime"];
+    self.elapsedTime = [unarchiver decodeIntForKey:@"elapsedTime"];
+    self.BAC = [unarchiver decodeDoubleForKey:@"bac"];
+    self.maxBACHolder = [unarchiver decodeDoubleForKey:@"maxBACHolder"];
+    self.alcOz = [unarchiver decodeDoubleForKey:@"alcOz"];
+    self.currentAlcOz = [unarchiver decodeDoubleForKey:@"currentAlcOz"];
+    self.lastAlcOz = [unarchiver decodeDoubleForKey:@"lastAlcOz"];
+    self.rageInProgress = [unarchiver decodeBoolForKey:@"rageInProgress"];
+    self.sendReminders = [unarchiver decodeBoolForKey:@"sendReminders"];
+    self.overallStats = [unarchiver decodeObjectForKey:@"overallStats"];
+    self.drinksHad = [unarchiver decodeObjectForKey:@"drinksHad"];
+    self.currentDrink = [unarchiver decodeObjectForKey:@"currentDrink"];
+    self.lastDateDrank = [unarchiver decodeObjectForKey:@"lastDateDrank"];
+    
+    
+    
+    //NSLog(@"%@", self);
+    
+//    currentDrink = [unarchiver decodeObjectForKey:@"currentDrink"];
+//    currentAlcOz = [unarchiver decodeDoubleForKey:@"currentAlcOz"];
+    [unarchiver finishDecoding];
+}
+
+
 
 
 
@@ -134,19 +186,42 @@
         elapsedTime = 0;
         weight = 0;
         numDrinks = 0;
-        alcOz = 0;
-        proof = 6; //default 80 proof drinks, implement into Drinks plist eventually
+        alcOz = 0.0;
+        currentAlcOz = 0.0;
+        lastAlcOz = 0.0;
         rageInProgress = NO;
-        isFirstLoad = YES;
         sex = m;
         BAC = 0.0;
+        currentDrink = @"";
         maxBACHolder = 0.0;
         NSNumber *zeroNum = [NSNumber numberWithInt:0];
-        overallStats = [[NSMutableDictionary alloc] initWithObjectsAndKeys:zeroNum, @"blue", zeroNum,  @"maize",
-                        zeroNum, @"red", nil];
+        overallStats = [[NSMutableDictionary alloc] initWithObjectsAndKeys:zeroNum, @"blue", zeroNum,  @"maize", zeroNum, @"red", nil];
+        drinksHad = [[NSMutableDictionary alloc] init];
+        [drinksHad removeAllObjects];
+        lastDateDrank = [[NSDate alloc] init];
     }
-    //[self saveData];
     return self;
 }
+
+
+
+
+- (void) toString
+{
+    NSLog(@"Start time: %i", self.startTime);
+    NSLog(@"Elapsed time: %i", self.elapsedTime);
+    NSLog(@"Weight: %i", self.weight);
+    NSLog(@"Drinks: %i", self.numDrinks);
+    NSLog(@"BAC: %f", self.BAC);
+    NSLog(@"Max BAC: %f", self.maxBACHolder);
+    NSLog(@"Alcohol: %f oz", self.alcOz);
+    NSLog(@"Current drink strength: %f oz", self.currentAlcOz);
+    NSLog(@"Last Alc Oz: %f oz", self.lastAlcOz);
+    NSLog(@"Session started: %u", self.rageInProgress);
+    NSLog(@"Gender: %@", self.sex ? @"Male":@"Female");
+    NSLog(@"Stats: %@", self.overallStats);
+    NSLog(@"Current drink: %@", self.currentDrink);
+}
+
 
 @end

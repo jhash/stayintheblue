@@ -15,7 +15,8 @@
 @end
 
 @implementation SettingsScreen
-@synthesize user,weightField,genderPicker,delegate;
+@synthesize user,weightField,genderPicker,delegate, num;
+@synthesize reminderSwitch;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    user = [User sharedUser];
     
     // put weight and selected gender as selections so as to avoid confusion, if already set
     if(user.weight > 0)
@@ -36,8 +38,17 @@
         weightField.text = [[NSString alloc] initWithFormat:@"%i", user.weight];
     }
     
-    genderPicker.selectedSegmentIndex = user.sex;
+    self.genderPicker.selectedSegmentIndex = user.sex;
+    [self.reminderSwitch setOn: user.sendReminders];
     
+    
+    UIToolbar *numPadDoneToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numPadDoneToolbar.barStyle = UIBarStyleBlackTranslucent;
+    numPadDoneToolbar.items = [NSArray arrayWithObjects:
+                               [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                               [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dismissKeyboard:)], nil];
+    [numPadDoneToolbar sizeToFit];
+    weightField.inputAccessoryView = numPadDoneToolbar;
 	// Do any additional setup after loading the view.
 }
 
@@ -65,6 +76,21 @@
 
 - (IBAction)callDismiss:(id)sender // done button
 {
+    BOOL didEnterWeight = YES;
+    user.sendReminders = self.reminderSwitch.isOn;
+    if([weightField.text isEqualToString:@""])
+    {
+        NSString *errorMsg = @"Please enter your weight";
+        
+        UIAlertView *weightError = [[UIAlertView alloc]
+                                    initWithTitle:@"Error"
+                                    message:errorMsg
+                                    delegate:self
+                                    cancelButtonTitle:@"OK"
+                                    otherButtonTitles:nil, nil];
+        didEnterWeight = NO;
+        [weightError show];
+    }
     
     
     if(weightField.isFirstResponder) //if keyboard still active on done
@@ -77,8 +103,18 @@
     user.sex = [genderPicker selectedSegmentIndex];
     
     //pass them to up to drinking screen
-    [delegate passBackUserSettings:self weight:user.weight userSex:user.sex];
-    [self dismissViewControllerAnimated:YES completion:nil]; //dismiss screen
+    
+    if(didEnterWeight)
+    {
+        [delegate passBackUserSettings:self weight:user.weight userSex:user.sex];
+        [self dismissViewControllerAnimated:YES completion:nil]; //dismiss screen
+        
+        MTStatusBarOverlay *overlay = [MTStatusBarOverlay sharedInstance];
+        overlay.animation = MTStatusBarOverlayAnimationNone;
+        [overlay postFinishMessage:@"Saved!" duration:4.0 animated:NO];
+        
+    }
+    [user saveUser];
 }
 
 - (IBAction)dismissKeyboard:(id)sender
@@ -102,4 +138,6 @@
 
 
 
+- (IBAction)reminderSwitch:(id)sender {
+}
 @end
