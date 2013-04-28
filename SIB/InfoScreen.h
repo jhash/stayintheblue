@@ -9,6 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface InfoScreen : UIViewController
-- (IBAction)dismissSelf:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UITextField *uniqnameTextField;
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+@property NSTimer *errorLabelTimer;
+@property BOOL didEnterUniqname;
+
+
+
+- (IBAction)sendToServerButton:(id)sender;
 
 @end

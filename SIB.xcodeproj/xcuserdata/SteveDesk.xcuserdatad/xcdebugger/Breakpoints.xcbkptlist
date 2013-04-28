@@ -7,26 +7,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "SIB/DrinkLogScreen.m"
-         timestampString = "386462034.236481"
+         filePath = "DrinkingScreen.m"
+         timestampString = "388603379.729049"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "30"
-         endingLineNumber = "30"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "SIB/DrinkLogScreen.m"
-         timestampString = "386465295.445934"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "40"
-         endingLineNumber = "40"
-         landmarkName = "-viewWillAppear:"
+         startingLineNumber = "358"
+         endingLineNumber = "358"
+         landmarkName = "-logButtonPressed:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

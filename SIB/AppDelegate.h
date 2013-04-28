@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "PPRevealSideViewController.h"
 
 
 
@@ -17,13 +18,13 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) DrinkingScreen *ds;
+@property (strong, nonatomic) PPRevealSideViewController * revealBottomViewController;
 
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property NSDictionary *recordSetting;
-@property AVAudioRecorder *recorder;
+
 
 
 @end

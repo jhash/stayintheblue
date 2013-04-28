@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>Boot (Heidelberg)</key>
-	<real>1.2</real>
+	<real>2</real>
 	<key>Long Island Iced Tea</key>
-	<integer>3</integer>
+	<real>2</real>
 	<key>Mind Probe</key>
-	<real>0.8</real>
+	<integer>2</integer>
 	<key>SharkBowl</key>
-	<real>0.8</real>
+	<real>3</real>
 	<key>Beer (Solo Cup)</key>
 	<real>0.8</real>
 	<key>FishBowl</key>
-	<integer>2</integer>
-	<key>Wine</key>
+	<real>2.5</real>
+	<key>Wine (5 oz)</key>
 	<real>0.6</real>
 	<key>Martini</key>
-	<real>0.5</real>
+	<real>1</real>
 	<key>Jungle Juice</key>
-	<integer>2</integer>
+	<real>2.2</real>
 	<key>Shot</key>
 	<real>0.5</real>
 	<key>Beer</key>
@@ -27,6 +27,14 @@
 	<key>Angry Ogre</key>
 	<real>1.3</real>
 	<key>40oz </key>
-	<real>3.2</real>
+	<real>2.4</real>
+	<key>Mixed Drink (Single)</key>
+	<real>0.5</real>
+	<key>Mixed Drink (Double)</key>
+	<integer>1</integer>
+	<key>Jager Bomb</key>
+	<real>0.5</real>
+	<key>Irish Car Bomb</key>
+	<real>0.9</real>
 </dict>
 </plist>

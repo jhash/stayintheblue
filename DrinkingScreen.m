@@ -17,6 +17,8 @@
 #import <CoreData/CoreData.h>
 #import <CoreMotion/CoreMotion.h>
 #import "NightStatsScreen.h"
+#import "TestFlight.h"
+
 
 
 #define IS_FIRST_LOAD_CONST 0
@@ -223,7 +225,8 @@
     
     isFirstLoadPointer = [def integerForKey:@"firstLoad"];
     
-    
+    UIColor *blueCol = [UIColor colorWithRed:.0941 green:.1960 blue:.3411 alpha:1.0];
+    self.InfoBar.backgroundColor = blueCol;
     
     if(isFirstLoadPointer != 100)
     {
@@ -239,6 +242,13 @@
         [user loadUser];
         [user toString];
     }
+    
+
+    DrinkLogScreen *logScreen = [[DrinkLogScreen alloc] init];
+    [self.revealSideViewController preloadViewController:logScreen forSide:PPRevealSideDirectionBottom];
+    
+    
+    
     
     
 
@@ -270,12 +280,13 @@
         self.topNavBar.rightBarButtonItem.enabled = NO;
     }
     
+    MTStatusBarOverlay *sbar = [MTStatusBarOverlay sharedInstance];
+    DrinkLogScreen *dls = [[DrinkLogScreen alloc]init];
+    [sbar setDetailView:dls.view];
+    sbar.animation = MTStatusBarOverlayAnimationFallDown;
+    [sbar show];
     
-    //----------CREATE LONG PRESS RECOGNIZEER FOR UNDO BUTTON-----------
-    UILongPressGestureRecognizer *longPresser = [[UILongPressGestureRecognizer alloc]
-                                                 initWithTarget:self action:@selector(undoStarter:)];
-    longPresser.minimumPressDuration = 1.0f;
-    [self.buttonText addGestureRecognizer:longPresser];
+
     
     //set delegate of My Drinking Screen to self
     MyDrinkingScreen *mds = [self.tabBarController.viewControllers objectAtIndex:1];
@@ -291,6 +302,7 @@
     
     [super viewDidAppear:animated];
     [self becomeFirstResponder];
+    [self updateLabels];
     
     
     if(isFirstLoad)
@@ -304,6 +316,7 @@
     }
     if(user.rageInProgress)
     {
+        
         self.currentDrinkName.topItem.title = user.currentDrink;
         [self updateColor];
         self.BACLabel.text = [NSString stringWithFormat:@"%.2f", user.BAC];
@@ -311,6 +324,7 @@
         self.timerLabel.text = [self calcTimeForTimer];
         self.timerLabel.hidden = NO;
         self.drinkLogButton.hidden = NO;
+        
     }
 
     
@@ -340,6 +354,11 @@
 
 
 
+- (IBAction)logButtonPressed:(id)sender
+{
+    [self.revealSideViewController pushOldViewControllerOnDirection:PPRevealSideDirectionBottom animated:YES];
+}
+
 - (IBAction)drinkPressed:(id)sender
 {
     user = [User sharedUser];
@@ -353,6 +372,7 @@
     //check if user has started
     if(user.rageInProgress)
     {
+        
         user.lastAlcOz = user.currentAlcOz;
         user.alcOz += user.currentAlcOz;
         user.numDrinks += [self calcNumDrinks:user.currentAlcOz];
@@ -364,7 +384,6 @@
         
         //logging drinks
         NSDate *now = [NSDate date];
-        //NSLog(@"%@", now);
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"hh:mm:ss"];
         
@@ -376,12 +395,13 @@
         
         NSArray *drinkKeys = [user.drinksHad allKeysForObject:user.currentDrink];
         NSLog(@"time: %@ drink: %@", drinkKeys[0], [user.drinksHad objectForKey:date]);
+
     }
     
     
     else //if the user is beginning a session, the drinkpicker will show automatically
     {
-        
+        t = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(onTick:) userInfo:nil repeats:YES];
         self.justUndid = NO;
         user.rageInProgress = YES;
         self.doneButton.hidden = NO;
@@ -398,6 +418,7 @@
         //create a repeating timer with 10 second interval. Use onTick method below as selector
         t = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(onTick:) userInfo:nil repeats:YES];
         [user calcBAC];
+        [self updateLabels];
     }
 }
 
