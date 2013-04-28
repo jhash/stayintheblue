@@ -10,6 +10,7 @@
 
 #import "MyDrinkingScreen.h"
 #import <QuartzCore/QuartzCore.h>
+#import "TestFlight.h"
 
 @interface MyDrinkingScreen ()
 
@@ -63,18 +64,6 @@
     [self.delegate passForwardColorDictionary:self];
     
     
-    
-//    red = 2;
-//    maize = 1;
-//    blue = 3;
-    
-    
-    
-    
-    //blueNum.text = [NSString stringWithFormat:@"%i", blue];
-    //maizeNum.text = [NSString stringWithFormat:@"%i", maize];
-    //redNum.text = [NSString stringWithFormat:@"%i", red];
-    
     blueCol = [UIColor colorWithRed:.0941 green:.1960 blue:.3411 alpha:1.0];
     maizeCol = [UIColor colorWithRed:.9098 green:.8901 blue:.0745 alpha:1.0];
     redCol = [UIColor colorWithRed:.3176 green:.0588 blue:.0666 alpha:1.0];
@@ -96,7 +85,7 @@
     
     
     
-    //make text and animations
+
     
     
     
