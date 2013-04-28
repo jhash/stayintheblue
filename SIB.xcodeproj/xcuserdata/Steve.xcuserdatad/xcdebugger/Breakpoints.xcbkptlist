@@ -13,7 +13,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "560"
          endingLineNumber = "560"
-         landmarkName = "-motionEnded:withEvent:"
+         landmarkName = "-onTick:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -26,7 +26,33 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "590"
          endingLineNumber = "590"
-         landmarkName = "-alertView:clickedButtonAtIndex:"
+         landmarkName = "-motionEnded:withEvent:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SIB/InfoScreen.m"
+         timestampString = "388874939.538894"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "140"
+         endingLineNumber = "140"
+         landmarkName = "-onTick:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SIB/InfoScreen.m"
+         timestampString = "388874939.538894"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "158"
+         endingLineNumber = "158"
+         landmarkName = "-showErrorLabelWithText:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

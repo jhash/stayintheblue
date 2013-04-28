@@ -18,6 +18,7 @@
 
 
 
+
 @interface DrinkingScreen : UIViewController <DrinkPickerScreenDelegate, SettingsScreenDelegate, MyDrinkingScreenDelegate>
 
 
@@ -34,6 +35,9 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *topNavBar;
 @property (weak, nonatomic) IBOutlet UIImageView *UserImage;
 @property  BOOL justUndid;
+@property (weak, nonatomic) IBOutlet UIImageView *InfoBar;
+
+
 
 
 
@@ -46,7 +50,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 
-
+- (IBAction)logButtonPressed:(id)sender;
 - (IBAction)drinkPressed:(id)sender;
 - (IBAction)donePressed:(id)sender;
 
